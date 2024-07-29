@@ -1,0 +1,14 @@
+[
+    {
+        "post_title": "Some new coding stuff I learned about",
+        "post_body": "Today I learned about SQL"
+    },
+    {
+        "post_title": "Quick question",
+        "post_body": "Have you guys used handlebars before? Today I used it. Went well!"
+    },
+    {
+        "post_title": "I love JavaScript",
+        "post_body": "It's my favorite coding language"
+    }
+]
