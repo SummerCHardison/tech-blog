@@ -22,8 +22,6 @@ const seedDatabase = async () => {
     createdPosts.push(createdPost);
   };
 
-  console.log(createdPosts)
-
   for (const comment of commentData) {
     await Comment.create({
       ...comment,
