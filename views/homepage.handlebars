@@ -4,9 +4,9 @@
 <div class="border">
     <p>{{post.post_title}}</p>
     <P>{{post.post_body}}</P>
-    <p>{{post.comment.comment_body}}</p>
     <p>Posted by: {{post.user.user_name}}</p>
-    <p><a href="/api/posts/{{post.id}}">View post</a href></p>
+    <h6>Comments:</h6>
+    <p>{{post.comment.comment_body}}</p>
 </div>
 <br>
 {{/each}}
