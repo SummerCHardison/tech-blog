@@ -1,13 +1,13 @@
 <p>//Dashboard</p>
 
-{{#if logged_in}}
-    {{#each posts as |post|}}
-    <div>
-        <p>{{post.post_title}}</p>
-        <P>{{post.post_body}}</P>
-    </div>
-    <br>
+{{#each posts as |post|}}
+<div>
+    <p>{{post.post_title}}</p>
+    <P>{{post.post_body}}</P>
+    <h6>Comments:</h6>
+    {{#each post.comments as |comment|}}
+    <p>{{comment.comment_body}}</p>
+    {{/each}}
+</div>
+<br>
 {{/each}}
-{{else}}
-<p><a href="/login">please log in</a></p>
-{{/if}}

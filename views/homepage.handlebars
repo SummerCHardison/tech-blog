@@ -6,7 +6,9 @@
     <P>{{post.post_body}}</P>
     <p>Posted by: {{post.user.user_name}}</p>
     <h6>Comments:</h6>
-    <p>{{post.comment.comment_body}}</p>
+    {{#each post.comments as |comment|}}
+    <p>{{comment.comment_body}}</p>
+    {{/each}}
 </div>
 <br>
 {{/each}}
