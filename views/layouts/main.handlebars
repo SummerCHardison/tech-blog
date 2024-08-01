@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tech-blog</title>
 </head>
+
 <body>
     <header>
         <h1>Tech Blog</h1>
-        <section id="navbar">
+        <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li>Dashboard</li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                {{#if logged_in}}
+                <li><button id="logout">Logout</button></li>
+                {{else}}
                 <li><a href='/login'>Login</a></li>
-                <li><button>Logout</button></li>
+                {{/if}}
             </ul>
-        </section>
+        </nav>
     </header>
     {{{body}}}
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
+
 </html>
