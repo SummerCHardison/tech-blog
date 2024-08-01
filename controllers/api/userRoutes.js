@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try{
-        userData = await User.findOne({
+        const userData = await User.findOne({
             where: {
                 user_name: req.body.user_name
             }
@@ -67,6 +67,16 @@ router.post('/login', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
       }
+});
+
+router.post('/logout', async (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        })
+    } else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router;

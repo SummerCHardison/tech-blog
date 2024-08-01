@@ -1,0 +1,13 @@
+<p>//Dashboard</p>
+
+{{#if logged_in}}
+    {{#each posts as |post|}}
+    <div>
+        <p>{{post.post_title}}</p>
+        <P>{{post.post_body}}</P>
+    </div>
+    <br>
+{{/each}}
+{{else}}
+<p><a href="/login">please log in</a></p>
+{{/if}}
