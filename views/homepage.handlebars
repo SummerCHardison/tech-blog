@@ -9,6 +9,7 @@
     {{#each post.comments as |comment|}}
     <p>{{comment.comment_body}}</p>
     {{/each}}
+    <p><a href="/api/posts/comment/{{post.id}}">Click here to view</a></p>
 </div>
 <br>
 {{/each}}
