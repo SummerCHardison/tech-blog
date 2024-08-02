@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -72,5 +73,39 @@ router.delete("/:id", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/edit/:id', async (req, res) => {
+    try{
+        const id = req.params.id;
+        res.render('edit', {
+            id
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/new/form', async (req, res) => {
+    try{
+        res.render('Post', {
+            id: req.session.user_id
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
+router.get('/comment/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        const post = postData.get({plain: true});
+       
+        res.render('commentPost', {
+            post
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;

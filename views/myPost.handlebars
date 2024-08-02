@@ -1,0 +1,15 @@
+<p>//myPost</p>
+
+<p>Viewing post with id of</p>
+<p id="id">{{post.id}}</p>
+<br>
+
+<div class="my-post">
+    <p>{{post.post_title}}</p>
+    <P>{{post.post_body}}</P>
+</div>
+
+<p><a href="/api/posts/edit/{{post.id}}">Edit Post</a></p>
+<button id="delete">Delete</button>
+
+<script src="/js/delete.js"></script>
